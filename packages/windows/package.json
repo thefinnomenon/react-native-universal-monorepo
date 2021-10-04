@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "react-native start",
-    "windows": "react-native run-windows",
+    "start": "npx react-native start",
+    "windows": "npx react-native run-windows",
     "lint": "eslint .",
     "lint:fix": "yarn lint --fix",
     "test": "jest --passWithNoTests"

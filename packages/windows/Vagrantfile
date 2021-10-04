@@ -1,0 +1,8 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "peru/windows-10-enterprise-x64-eval"
+  config.vm.provision "shell", path: "https://aka.ms/rnw-deps.ps1", powershell_elevated_interactive: true
+  config.vm.synced_folder "../../", "/react-native-universal-monorepo"
+end
