@@ -1,9 +1,9 @@
-const exclusionList = require("metro-config/src/defaults/exclusionList");
-const { getMetroTools } = require("react-native-monorepo-tools");
+const exclusionList = require('metro-config/src/defaults/exclusionList');
+const { getMetroTools } = require('react-native-monorepo-tools');
 
 // Get the metro settings to make it compatible with Yarn workspaces.
 const monorepoMetroTools = getMetroTools({
-  reactNativeAlias: "react-native-macos",
+  reactNativeAlias: 'react-native-macos',
 });
 
 module.exports = {

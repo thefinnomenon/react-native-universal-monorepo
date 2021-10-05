@@ -1,12 +1,6 @@
-import * as React from 'react'
-import { Children } from 'react'
-import Document, {
-  Html,
-  Head,
-  Main,
-  NextScript,
-  DocumentContext
-} from 'next/document';
+import * as React from 'react';
+import { Children } from 'react';
+import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
 import { AppRegistry } from 'react-native';
 
 import appName from '../app.json';
@@ -33,7 +27,7 @@ export default class MyDocument extends Document {
     const { getStyleElement } = AppRegistry.getApplication(appName.name);
     const page = await renderPage();
     const styles = [
-      <style key='normalizeNextElements' dangerouslySetInnerHTML={{ __html: normalizeNextElements }} />,
+      <style key="normalizeNextElements" dangerouslySetInnerHTML={{ __html: normalizeNextElements }} />,
       getStyleElement(),
     ];
     return { ...page, styles: Children.toArray(styles) };
@@ -48,6 +42,6 @@ export default class MyDocument extends Document {
           <NextScript />
         </body>
       </Html>
-    )
+    );
   }
 }

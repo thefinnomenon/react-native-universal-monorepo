@@ -1,21 +1,11 @@
-import React from "react";
-import {
-  Image,
-  ImageSourcePropType,
-  Platform,
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
-import { AsyncStorageExample } from "./AsyncStorageExample";
-import { subplatform } from "./config";
-import LogoSrc from "./logo.png";
+import React from 'react';
+import { Image, ImageSourcePropType, Platform, SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { AsyncStorageExample } from './AsyncStorageExample';
+import { subplatform } from './config';
+import LogoSrc from './logo.png';
 
 export function App(): JSX.Element {
-  const platformValue = subplatform
-    ? `${Platform.OS} (${subplatform})`
-    : Platform.OS;
+  const platformValue = subplatform ? `${Platform.OS} (${subplatform})` : Platform.OS;
   return (
     <SafeAreaView style={styles.root}>
       {/* On React Native for Web builds coming from CRA, TypeScript 
@@ -28,17 +18,17 @@ export function App(): JSX.Element {
           <Text style={styles.platformValue}>{platformValue}</Text>
         </View>
       </View>
-      <AsyncStorageExample/>
+      <AsyncStorageExample />
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   root: {
-    height: "100%",
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "white",
+    height: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'white',
   },
   logo: {
     width: 120,
@@ -47,23 +37,23 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 28,
-    fontWeight: "600",
+    fontWeight: '600',
   },
   platformRow: {
     marginTop: 12,
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   platformValue: {
     fontSize: 28,
-    fontWeight: "500",
+    fontWeight: '500',
   },
   platformBackground: {
-    backgroundColor: "#ececec",
+    backgroundColor: '#ececec',
     borderWidth: StyleSheet.hairlineWidth,
-    borderColor: "#d4d4d4",
+    borderColor: '#d4d4d4',
     paddingHorizontal: 6,
     borderRadius: 6,
-    alignItems: "center",
-  }
+    alignItems: 'center',
+  },
 });

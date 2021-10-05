@@ -9,12 +9,12 @@ export const isDev = __DEV__;
 export let subplatform: typeof __SUBPLATFORM__ = undefined;
 
 // Injected in electron and browser-extension builds.
-if (typeof __SUBPLATFORM__ === "string") {
-  subplatform = __SUBPLATFORM__
+if (typeof __SUBPLATFORM__ === 'string') {
+  subplatform = __SUBPLATFORM__;
 }
-// For tvOS and Android TV, we can check the Platform.isTV field 
-else if (Platform.isTV && Platform.OS === "ios") {
-  subplatform = "tvos";
-} else if (Platform.isTV && Platform.OS === "android") {
-  subplatform = "android-tv";
+// For tvOS and Android TV, we can check the Platform.isTV field
+else if (Platform.isTV && Platform.OS === 'ios') {
+  subplatform = 'tvos';
+} else if (Platform.isTV && Platform.OS === 'android') {
+  subplatform = 'android-tv';
 }
