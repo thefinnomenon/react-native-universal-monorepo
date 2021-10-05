@@ -16,6 +16,7 @@
   "dependencies": {
     "@my-app/app": "*",
     "@react-native-async-storage/async-storage": "^1.15.7",
+    "@sentry/react-native": "^3.1.1",
     "react": "17.0.2",
     "react-native": "0.65.1"
   },

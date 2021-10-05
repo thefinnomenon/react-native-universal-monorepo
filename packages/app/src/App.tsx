@@ -1,10 +1,23 @@
 import React from 'react';
-import { Image, ImageSourcePropType, Platform, SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { Image, ImageSourcePropType, Platform, Button, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import { AsyncStorageExample } from './AsyncStorageExample';
 import { subplatform } from './config';
 import LogoSrc from './logo.png';
 
-export function App(): JSX.Element {
+import * as Sentry from '@sentry/react-native';
+
+Sentry.init({
+  dsn: 'https://b011133cb51645389fb69d306f1dd1f9@o371187.ingest.sentry.io/5994191',
+  environment: `${Platform.OS}-${subplatform ? `${subplatform}-` : ''}${__DEV__ ? 'development' : 'production'}`,
+  autoSessionTracking: true,
+  integrations: [
+    new Sentry.ReactNativeTracing({
+      tracingOrigins: ['localhost', 'my-site-url.com', /^\//],
+    }),
+  ],
+});
+
+const App = (): JSX.Element => {
   const platformValue = subplatform ? `${Platform.OS} (${subplatform})` : Platform.OS;
   return (
     <SafeAreaView style={styles.root}>
@@ -19,9 +32,16 @@ export function App(): JSX.Element {
         </View>
       </View>
       <AsyncStorageExample />
+      <Button
+        onPress={() => {
+          throw new Error('My first Sentry error!');
+        }}
+        title="Throw JS Error"
+      />
+      <Button onPress={() => Sentry.nativeCrash()} title="Throw Native Error" />
     </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   root: {
@@ -57,3 +77,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
+
+export default Sentry.wrap(Sentry.withTouchEventBoundary(App, {}));
