@@ -11,3 +11,7 @@ yarn-debug.log*
 yarn-error.log*
 .eslintcache
 .sentryclirc
+
+envs/.env.development
+envs/.env.production
+envs/.env.staging
