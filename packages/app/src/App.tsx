@@ -1,21 +1,9 @@
 import React from 'react';
 import { Image, ImageSourcePropType, Platform, Button, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import { AsyncStorageExample } from './AsyncStorageExample';
+import Sentry from './services/sentry';
 import { subplatform } from './config';
 import LogoSrc from './logo.png';
-
-import * as Sentry from '@sentry/react-native';
-
-Sentry.init({
-  dsn: 'https://b011133cb51645389fb69d306f1dd1f9@o371187.ingest.sentry.io/5994191',
-  environment: `${Platform.OS}-${subplatform ? `${subplatform}-` : ''}${__DEV__ ? 'development' : 'production'}`,
-  autoSessionTracking: true,
-  integrations: [
-    new Sentry.ReactNativeTracing({
-      tracingOrigins: ['localhost', 'my-site-url.com', /^\//],
-    }),
-  ],
-});
 
 const App = (): JSX.Element => {
   const platformValue = subplatform ? `${Platform.OS} (${subplatform})` : Platform.OS;
@@ -78,4 +66,5 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Sentry.wrap(Sentry.withTouchEventBoundary(App, {}));
+export default App;
+//export default Sentry.wrap(Sentry.withTouchEventBoundary(App, {}));
