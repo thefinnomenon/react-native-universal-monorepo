@@ -1,3 +1,5 @@
+import { getLogger } from './services/logger';
+const logger = getLogger('App');
 import React from 'react';
 import { Image, ImageSourcePropType, Platform, Button, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import { AsyncStorageExample } from './AsyncStorageExample';

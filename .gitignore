@@ -9,8 +9,9 @@ node_modules
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-.eslintcache
-.sentryclirc
+**/.eslintcache
+**/.sentryclirc
+**/sentry.properties
 
 envs/.env.development
 envs/.env.production

@@ -1,3 +1,5 @@
+import { getLogger } from './services/logger';
+const logger = getLogger('AsyncStorage');
 import React, { useEffect, useState } from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import { useAsyncStorage } from '@react-native-async-storage/async-storage';
@@ -16,6 +18,8 @@ export function AsyncStorageExample(): JSX.Element {
   const writeItemToStorage = async (newValue: string) => {
     await setItem(newValue);
     setValue(newValue);
+
+    logger.debug(`Storing new value: ${newValue}`);
   };
 
   useEffect(() => {

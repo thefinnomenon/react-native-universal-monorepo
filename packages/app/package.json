@@ -22,5 +22,8 @@
     "@sentry/react-native": "*",
     "react": "*",
     "react-native": "*"
+  },
+  "dependencies": {
+    "react-native-logs": "^3.0.4"
   }
 }
