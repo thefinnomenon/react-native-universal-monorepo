@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const { getWebpackTools } = require('react-native-monorepo-tools');
+const SentryWebpackPlugin = require('@sentry/webpack-plugin');
 
 const monorepoWebpackTools = getWebpackTools();
 
@@ -12,6 +13,7 @@ module.exports = {
       monorepoWebpackTools.addNohoistAliases(webpackConfig);
       return webpackConfig;
     },
+    devtool: 'source-map',
     plugins: [
       // Inject the "__DEV__" global variable.
       new webpack.DefinePlugin({
@@ -22,6 +24,15 @@ module.exports = {
       // browser extension or not.
       new webpack.DefinePlugin({
         __SUBPLATFORM__: JSON.stringify('browser-ext'),
+      }),
+      // Generate and upload sourcemaps
+      new SentryWebpackPlugin({
+        authToken: process.env.SENTRY_AUTH_TOKEN,
+        org: 'the-finnternet',
+        project: 'urns',
+        release: process.env.SENTRY_RELEASE,
+        include: '.',
+        ignore: ['node_modules', 'craco.config.js'],
       }),
     ],
   },
