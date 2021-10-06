@@ -6,9 +6,10 @@ import { App } from '@my-app/app';
 import * as Sentry from '@sentry/electron';
 
 Sentry.init({
-  dsn: 'https://b011133cb51645389fb69d306f1dd1f9@o371187.ingest.sentry.io/5994191',
-  environment: `electron-${__DEV__ ? 'dev' : 'prod'}`,
-  debug: true,
+  dsn: process.env.SENTRY_DSN,
+  environment: `electron-${process.env.NODE_ENV}`,
+  tracesSampleRate: parseFloat(process.env.SENTRY_TRACES_SAMPLE_RATE || '1.0'),
+  debug: process.env.SENTRY_DEBUG === 'true',
 });
 
 ReactDOM.render(

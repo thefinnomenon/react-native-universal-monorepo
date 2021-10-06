@@ -1,9 +1,14 @@
 /** @type {import('next').NextConfig} */
+const webpack = require('webpack');
 const path = require('path');
+
+require('dotenv').config({ path: `../../envs/.env.${process.env.NODE_ENV}` });
 
 const { withSentryConfig } = require('@sentry/nextjs');
 
-const SentryWebpackPluginOptions = {};
+const SentryWebpackPluginOptions = {
+  silent: true,
+};
 
 // Necessary to handle statically imported images
 const withImages = require('next-images');
@@ -37,6 +42,12 @@ module.exports = withSentryConfig(
 
         return config;
       },
+      plugins: [
+        // Inject process.env
+        new webpack.DefinePlugin({
+          'process.env': JSON.stringify(process.env),
+        }),
+      ],
     }),
   ),
   SentryWebpackPluginOptions,

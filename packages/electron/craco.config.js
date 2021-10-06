@@ -2,6 +2,8 @@ const webpack = require('webpack');
 const { getWebpackTools } = require('react-native-monorepo-tools');
 const SentryWebpackPlugin = require('@sentry/webpack-plugin');
 
+require('dotenv').config({ path: `../../envs/.env.${process.env.NODE_ENV}` });
+
 const monorepoWebpackTools = getWebpackTools();
 
 module.exports = {
@@ -32,11 +34,15 @@ module.exports = {
       new webpack.DefinePlugin({
         'process.type': '"renderer"',
       }),
+      // Inject process.env
+      new webpack.DefinePlugin({
+        'process.env': JSON.stringify(process.env),
+      }),
       // Generate and upload sourcemaps
       new SentryWebpackPlugin({
         authToken: process.env.SENTRY_AUTH_TOKEN,
-        org: 'the-finnternet',
-        project: 'urns',
+        org: process.env.SENTRY_ORG,
+        project: process.env.SENTRY_PROJECT,
         release: process.env.SENTRY_RELEASE,
         include: '.',
         ignore: ['node_modules', 'craco.config.js'],

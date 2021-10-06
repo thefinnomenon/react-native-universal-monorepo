@@ -4,11 +4,9 @@
 
 import * as Sentry from '@sentry/nextjs';
 
-const SENTRY_DSN = process.env.SENTRY_DSN || process.env.NEXT_PUBLIC_SENTRY_DSN;
-
 Sentry.init({
-  dsn: SENTRY_DSN || 'https://b011133cb51645389fb69d306f1dd1f9@o371187.ingest.sentry.io/5994191',
-  // eslint-disable-next-line no-undef
-  environment: `next-${__DEV__ ? 'dev' : 'prod'}`,
-  tracesSampleRate: 0.2,
+  dsn: process.env.SENTRY_DSN,
+  environment: `next-${process.env.NODE_ENV}`,
+  tracesSampleRate: process.env.TRACES_SAMPLE_RATE,
+  debug: process.env.SENTRY_DEBUG,
 });

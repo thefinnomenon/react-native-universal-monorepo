@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+require('dotenv').config({ path: `../../envs/.env.${process.env.NODE_ENV}` });
 
 let SentryCli;
 let download;
@@ -16,7 +17,7 @@ const VERSION =
   /\bv?(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)(?:-[\da-z-]+(?:\.[\da-z-]+)*)?(?:\+[\da-z-]+(?:\.[\da-z-]+)*)?\b/i;
 const SYMBOL_CACHE_FOLDER = '.electron-symbols';
 const package = require('./package.json');
-const sentryCli = new SentryCli('./sentry.properties');
+const sentryCli = new SentryCli();
 
 async function main() {
   let version = getElectronVersion();

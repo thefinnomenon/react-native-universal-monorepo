@@ -6,23 +6,18 @@ import * as Sentry from '@sentry/react';
 import { Integrations } from '@sentry/tracing';
 
 Sentry.init({
-  dsn: 'https://b011133cb51645389fb69d306f1dd1f9@o371187.ingest.sentry.io/5994191',
+  dsn: process.env.SENTRY_DSN,
   integrations: [new Integrations.BrowserTracing()],
-  environment: `browser-ext-${__DEV__ ? 'dev' : 'prod'}`,
-  tracesSampleRate: 0.2,
+  environment: `browser-ext-${process.env.NODE_ENV}`,
+  tracesSampleRate: parseFloat(process.env.SENTRY_TRACES_SAMPLE_RATE || '1.0'),
+  debug: process.env.SENTRY_DEBUG === 'true',
 });
-
-function FallbackComponent() {
-  return <div>An error has occurred</div>;
-}
-
-const myFallback = <FallbackComponent />;
 
 const WrappedApp = Sentry.withProfiler(App);
 
 ReactDOM.render(
   <React.StrictMode>
-    <Sentry.ErrorBoundary fallback={myFallback} showDialog>
+    <Sentry.ErrorBoundary>
       <WrappedApp />
     </Sentry.ErrorBoundary>
   </React.StrictMode>,

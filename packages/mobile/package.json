@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
-    "ios": "react-native run-ios",
-    "start": "react-native start",
+    "ios": "NODE_ENV=development react-native run-ios",
+    "start": "NODE_ENV=development react-native start --reset-cache",
     "studio": "studio android",
     "xcode": "xed ios",
     "pods": "pod-install",
@@ -24,6 +24,7 @@
     "@babel/core": "^7.12.9",
     "@babel/runtime": "^7.12.5",
     "babel-jest": "^26.6.3",
+    "babel-plugin-transform-inline-environment-variables": "^0.4.3",
     "jest": "^26.6.3",
     "metro-config": "^0.66.2",
     "metro-react-native-babel-preset": "^0.66.0",

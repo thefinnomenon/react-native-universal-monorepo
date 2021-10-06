@@ -65,4 +65,3 @@ const styles = StyleSheet.create({
 });
 
 export default App;
-//export default Sentry.wrap(Sentry.withTouchEventBoundary(App, {}));

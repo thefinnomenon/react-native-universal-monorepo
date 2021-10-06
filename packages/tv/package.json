@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "react-native start",
+    "start": "NODE_ENV=development react-native start --reset-cache",
     "android": "emulator -avd Android_TV; react-native run-android",
     "ios": "react-native run-ios --simulator 'Apple TV' --scheme 'tv-tvOS'",
     "studio": "studio android",
@@ -24,6 +24,7 @@
     "@types/react-native": "^0.64.2",
     "@types/react-test-renderer": "^17.0.1",
     "babel-jest": "^26.6.3",
+    "babel-plugin-transform-inline-environment-variables": "^0.4.3",
     "jest": "^26.6.3",
     "metro-react-native-babel-preset": "^0.64.0",
     "pod-install": "^0.1.27",
