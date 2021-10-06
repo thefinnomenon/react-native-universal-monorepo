@@ -3,6 +3,14 @@ const { app, BrowserWindow, protocol } = require('electron');
 const path = require('path');
 const url = require('url');
 
+const { init } = require('@sentry/electron');
+
+init({
+  dsn: 'https://b011133cb51645389fb69d306f1dd1f9@o371187.ingest.sentry.io/5994191',
+  // eslint-disable-next-line no-undef
+  environment: `electron-${process.env.NODE_ENV !== 'production' ? 'dev' : 'prod'}`,
+});
+
 // Create the native browser window.
 function createWindow() {
   const mainWindow = new BrowserWindow({

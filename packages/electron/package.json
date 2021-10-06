@@ -13,6 +13,7 @@
     "package:mac": "yarn build && electron-builder -m -c.extraMetadata.main=build/electron.js",
     "package:win": "yarn build && electron-builder -w -c.extraMetadata.main=build/electron.js",
     "package:linux": "yarn build && electron-builder -l -c.extraMetadata.main=build/electron.js",
+    "uploadSymbols": "node sentry-symbols.js",
     "test": "react-scripts test --watchAll=false --passWithNoTests",
     "eject": "react-scripts eject",
     "lint": "eslint .",
@@ -21,6 +22,7 @@
   "dependencies": {
     "@my-app/app": "*",
     "@react-native-async-storage/async-storage": "^1.15.7",
+    "@sentry/electron": "^2.5.4",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -32,6 +34,7 @@
   },
   "devDependencies": {
     "@craco/craco": "^6.2.0",
+    "@sentry/webpack-plugin": "^1.17.2",
     "@types/react": "^17.0.20",
     "@types/react-dom": "^17.0.9",
     "concurrently": "^6.2.1",

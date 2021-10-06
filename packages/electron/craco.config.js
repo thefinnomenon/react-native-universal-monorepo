@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const { getWebpackTools } = require('react-native-monorepo-tools');
+const SentryWebpackPlugin = require('@sentry/webpack-plugin');
 
 const monorepoWebpackTools = getWebpackTools();
 
@@ -21,6 +22,23 @@ module.exports = {
       // It can be used to determine whether we're running within Electron or not.
       new webpack.DefinePlugin({
         __SUBPLATFORM__: JSON.stringify('electron'),
+      }),
+      // main process
+      new webpack.DefinePlugin({
+        'process.type': '"browser"',
+      }),
+      // renderer process
+      new webpack.DefinePlugin({
+        'process.type': '"renderer"',
+      }),
+      // Generate and upload sourcemaps
+      new SentryWebpackPlugin({
+        authToken: process.env.SENTRY_AUTH_TOKEN,
+        org: 'the-finnternet',
+        project: 'urns',
+        release: process.env.SENTRY_RELEASE,
+        include: '.',
+        ignore: ['node_modules', 'craco.config.js'],
       }),
     ],
   },
