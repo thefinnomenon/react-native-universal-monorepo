@@ -239,8 +239,14 @@ PODS:
     - React-cxxreact (= 0.64.2-2)
     - React-jsi (= 0.64.2-2)
     - React-perflogger (= 0.64.2-2)
-  - RNCAsyncStorage (1.15.7):
+  - RNCAsyncStorage (1.15.8):
     - React-Core
+  - RNSentry (3.1.1):
+    - React-Core
+    - Sentry (= 7.3.0)
+  - Sentry (7.3.0):
+    - Sentry/Core (= 7.3.0)
+  - Sentry/Core (7.3.0)
   - Yoga (1.14.0)
 
 DEPENDENCIES:
@@ -272,11 +278,13 @@ DEPENDENCIES:
   - React-runtimeexecutor (from `../node_modules/react-native/ReactCommon/runtimeexecutor`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
+  - "RNSentry (from `../node_modules/@sentry/react-native`)"
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
   trunk:
     - boost-for-react-native
+    - Sentry
 
 EXTERNAL SOURCES:
   DoubleConversion:
@@ -331,6 +339,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   RNCAsyncStorage:
     :path: "../node_modules/@react-native-async-storage/async-storage"
+  RNSentry:
+    :path: "../node_modules/@sentry/react-native"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -361,7 +371,9 @@ SPEC CHECKSUMS:
   React-RCTText: aa98f3eb2a43c9b0fd7ea00c5d97409f8493636c
   React-runtimeexecutor: c609425af7a4fd1da7d549e81614487f702e5025
   ReactCommon: fe50c49bc90e5d242845cb534f88164868cba242
-  RNCAsyncStorage: 7102fe8985f889579a3ae148d957bbb3f308122b
+  RNCAsyncStorage: e8b8d6320a0dd90eb610fb0d0b1ef90596697c69
+  RNSentry: 49abc89b0190b4c8afe0fa5d065f98e36cb53233
+  Sentry: 9a4e621430e2dae4477d791f2f7e905720b6efbf
   Yoga: e6fb09105c0264e3ad22605d6b6fa2776e169518
 
 PODFILE CHECKSUM: 85acb36d57b3c0844ae8611c7badc43bfb22ea3f
