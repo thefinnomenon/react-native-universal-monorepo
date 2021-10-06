@@ -13,6 +13,7 @@ module.exports = {
       monorepoWebpackTools.addNohoistAliases(webpackConfig);
       return webpackConfig;
     },
+    devtool: 'source-map',
     plugins: [
       // Inject the "__DEV__" global variable.
       new webpack.DefinePlugin({
