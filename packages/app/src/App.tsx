@@ -1,7 +1,6 @@
 import React from 'react';
 import { Image, ImageSourcePropType, Platform, Button, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import { AsyncStorageExample } from './AsyncStorageExample';
-import Sentry from './services/sentry';
 import { subplatform } from './config';
 import LogoSrc from './logo.png';
 
@@ -26,7 +25,6 @@ const App = (): JSX.Element => {
         }}
         title="Throw JS Error"
       />
-      <Button onPress={() => Sentry.nativeCrash()} title="Throw Native Error" />
     </SafeAreaView>
   );
 };

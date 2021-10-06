@@ -1,3 +1,6 @@
 module.exports = {
-  extends: ["../../.eslintrc"],
+  extends: ['../../.eslintrc'],
+  parserOptions: {
+    sourceType: 'module',
+  },
 };

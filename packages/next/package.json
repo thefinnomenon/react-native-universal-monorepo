@@ -11,6 +11,7 @@
   "dependencies": {
     "@my-app/app": "*",
     "@react-native-async-storage/async-storage": "^1.15.8",
+    "@sentry/nextjs": "^6.13.2",
     "next": "11.1.2",
     "next-fonts": "^1.5.1",
     "next-images": "^1.8.1",
