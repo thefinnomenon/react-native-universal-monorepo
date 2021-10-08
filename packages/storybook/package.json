@@ -1,0 +1,42 @@
+{
+  "name": "@my-app/storybook",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.15.8",
+    "@storybook/addon-actions": "^6.3.10",
+    "@storybook/addon-essentials": "^6.3.10",
+    "@storybook/addon-knobs": "^5.3",
+    "@storybook/addon-links": "^6.3.10",
+    "@storybook/addon-ondevice-actions": "^5.3.23",
+    "@storybook/addon-ondevice-knobs": "^5.3.25",
+    "@storybook/react": "^6.3.10",
+    "@storybook/react-native": "^5.3.25",
+    "@storybook/react-native-server": "^5.3.23",
+    "babel-loader": "^8.2.2",
+    "react-native-monorepo-tools": "^1.1.0",
+    "react-native-storybook-loader": "^2.0.4"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-native": "^0.66.0",
+    "react-native-web": "^0.17.5"
+  },
+  "scripts": {
+    "prestorybook": "rnstl",
+    "storybook": "./node_modules/@storybook/react-native-server/bin/index.js -p 7007",
+    "storybook-web": "./node_modules/@storybook/react/bin/index.js",
+    "storybook-web:build": "./node_modules/@storybook/react/bin/build.js"
+  },
+  "config": {
+    "react-native-storybook-loader": {
+      "searchDir": [
+        "../../app/src/"
+      ],
+      "pattern": "**/*.stories.{mdx,js,jsx,ts,tsx}",
+      "outputFile": "./storybook/storyLoader.js"
+    }
+  }
+}

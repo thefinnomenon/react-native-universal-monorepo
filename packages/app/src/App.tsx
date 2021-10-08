@@ -6,7 +6,13 @@ import { AsyncStorageExample } from './AsyncStorageExample';
 import { subplatform } from './config';
 import LogoSrc from './logo.png';
 
-const App = (): JSX.Element => {
+// import StorybookUIRoot from '../../storybook/storybook';
+
+// export default function App() {
+//   return <StorybookUIRoot />;
+// }
+
+export default function App(): JSX.Element {
   const platformValue = subplatform ? `${Platform.OS} (${subplatform})` : Platform.OS;
   return (
     <SafeAreaView style={styles.root}>
@@ -29,7 +35,7 @@ const App = (): JSX.Element => {
       />
     </SafeAreaView>
   );
-};
+}
 
 const styles = StyleSheet.create({
   root: {
@@ -65,5 +71,3 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
-
-export default App;

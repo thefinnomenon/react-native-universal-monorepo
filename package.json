@@ -9,6 +9,7 @@
     "nohoist": [
       "**/@react-native-async-storage/async-storage",
       "**/@sentry/react-native",
+      "**/@storybook/react-native-server",
       "**/react",
       "**/react-dom",
       "**/react-native",
@@ -21,6 +22,9 @@
   },
   "scripts": {
     "reset": "find . -type dir -name node_modules | xargs rm -rf && rm -rf yarn.lock",
+    "storybook": "yarn workspace @my-app/storybook storybook",
+    "storybook-web": "yarn workspace @my-app/storybook storybook-web",
+    "storybook-web:build": "yarn workspace @my-app/storybook storybook-web:build",
     "android:metro": "yarn workspace @my-app/mobile start",
     "android:start": "yarn workspace @my-app/mobile android",
     "android:studio": "yarn workspace @my-app/mobile studio",
