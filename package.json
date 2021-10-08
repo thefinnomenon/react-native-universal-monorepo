@@ -9,6 +9,7 @@
     "nohoist": [
       "**/@react-native-async-storage/async-storage",
       "**/@sentry/react-native",
+      "**/@storybook/react-native-server",
       "**/react",
       "**/react-dom",
       "**/react-native",
